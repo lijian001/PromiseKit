@@ -10,7 +10,7 @@ env:
   - "DESTINATION='platform=tvOS Simulator,name=Apple TV 1080p' ACTION=test"
 
 script:
-  - set -o pipefail && xcodebuild -scheme PromiseKit -destination "$DESTINATION" test | xcpretty
+  - set -o pipefail && xcodebuild -scheme PromiseKit -destination "$DESTINATION" $ACTION | xcpretty
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
